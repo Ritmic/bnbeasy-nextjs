@@ -9,7 +9,7 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      Booking: {
+      booking: {
         Row: {
           created_at: string
           date_end: string | null
@@ -42,7 +42,7 @@ export interface Database {
         }
         Relationships: []
       }
-      Booking_to_room: {
+      booking_to_room: {
         Row: {
           book_id: number | null
           created_at: string
@@ -66,20 +66,20 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "Booking_to_room_book_id_fkey"
+            foreignKeyName: "booking_to_room_book_id_fkey"
             columns: ["book_id"]
-            referencedRelation: "Booking"
+            referencedRelation: "booking"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "Booking_to_room_room_id_fkey"
+            foreignKeyName: "booking_to_room_room_id_fkey"
             columns: ["room_id"]
-            referencedRelation: "Room"
+            referencedRelation: "room"
             referencedColumns: ["id"]
           }
         ]
       }
-      "Establishment ": {
+      establishment: {
         Row: {
           created_at: string
           id: number
@@ -100,14 +100,14 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "Establishment _owner_fkey"
+            foreignKeyName: "establishment_owner_fkey"
             columns: ["owner"]
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
         ]
       }
-      Room: {
+      room: {
         Row: {
           created_at: string
           establishment: number | null
@@ -137,9 +137,9 @@ export interface Database {
         }
         Relationships: [
           {
-            foreignKeyName: "Room_establishment_fkey"
+            foreignKeyName: "room_establishment_fkey"
             columns: ["establishment"]
-            referencedRelation: "Establishment "
+            referencedRelation: "establishment"
             referencedColumns: ["id"]
           }
         ]
