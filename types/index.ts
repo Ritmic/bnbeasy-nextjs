@@ -22,4 +22,5 @@ export type{
 
 export interface DashboardHeaderProps{
     style?:string;
+    onMenuButtonClicked:() => void
 }
