@@ -2,14 +2,16 @@
 import React from 'react'
 import Image from 'next/image'
 import { CustomButtonProps } from '@/types'
+import { format } from 'path'
 
 const CustomButton = (
-    { title, containerStyles, handleClick, btnType }: CustomButtonProps
+    { title, containerStyles, formAction ,handleClick, btnType }: CustomButtonProps
 ) => {
     return (
         <button
             disabled={false}
             type={ btnType || "button"}
+            formAction={formAction}
             className={`custom-btn ${containerStyles}`}
             onClick={handleClick}
         >
